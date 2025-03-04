@@ -14,17 +14,20 @@ def extract_tables_from_pdf(pdf_path, output_excel):
     all_data = []
     addData = False
     count = 1
+    # add header
+    all_data.append(["Cardápio Nº","Ingredientes","Fundamental 1 - 6 a 10 anos", "Fundamental 2 - 11 a 15 anos", "Médio", "EJA"])
     for table in tables:
         for row in table:
             if(row[0].startswith(f"Cardápio {count}")  and addData == False):
                 addData = True
-                
+            if(row[0].startswith(f"Ingredientes")):
+                continue
             if(row[0].startswith(f"Informações nutricionais do Cardápio {count}")):
                 addData = False
                 count = count + 1
                 continue  
             if(addData == False):
-                continue            
+                continue
             print(row)
             all_data.append(row)
     
