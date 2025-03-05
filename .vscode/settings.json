@@ -3,6 +3,7 @@
         "Basica",
         "cardapio",
         "Educacao",
-        "pdfplumber"
+        "pdfplumber",
+        "preparacao"
     ]
 }
